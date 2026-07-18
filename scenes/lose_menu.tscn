@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://deee5m47iqmby"]
+
+[ext_resource type="Script" uid="uid://btsijd5pig5kx" path="res://scripts/lose_menu.gd" id="1_umd70"]
+[ext_resource type="FontFile" uid="uid://drpxnperqvly5" path="res://assets/fonts/Kenney Future.ttf" id="2_p3vro"]
+[ext_resource type="Texture2D" uid="uid://cvurg2od4fvup" path="res://assets/ui/buttons/blue/button_rectangle_gloss.svg" id="3_mmnfx"]
+[ext_resource type="Texture2D" uid="uid://bxoybwjnj83j8" path="res://assets/ui/buttons/blue/button_rectangle_flat.svg" id="4_5i75y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("2_p3vro")
+font_size = 128
+
+[node name="lose_menu" type="CanvasLayer" unique_id=204029111]
+process_mode = 3
+visible = false
+script = ExtResource("1_umd70")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=312886000]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6784314)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=202890271]
+anchors_preset = -1
+anchor_top = 0.06635802
+anchor_right = 1.0
+anchor_bottom = 0.33179012
+offset_bottom = -28.0
+grow_horizontal = 2
+text = " lose"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1251833082]
+anchors_preset = -1
+anchor_left = 0.41666666
+anchor_top = 0.4027778
+anchor_right = 0.5833333
+anchor_bottom = 0.6342593
+offset_bottom = -3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 22
+metadata/_edit_use_anchors_ = true
+
+[node name="RestartButton" type="TextureButton" parent="VBoxContainer" unique_id=1777053845]
+layout_mode = 2
+texture_normal = ExtResource("3_mmnfx")
+texture_pressed = ExtResource("4_5i75y")
+
+[node name="Label" type="Label" parent="VBoxContainer/RestartButton" unique_id=376404540]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_p3vro")
+theme_override_font_sizes/font_size = 26
+text = "Restart"
+
+[node name="MenuButton" type="TextureButton" parent="VBoxContainer" unique_id=1644501338]
+layout_mode = 2
+texture_normal = ExtResource("3_mmnfx")
+texture_pressed = ExtResource("4_5i75y")
+
+[node name="Label" type="Label" parent="VBoxContainer/MenuButton" unique_id=1699788924]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_p3vro")
+theme_override_font_sizes/font_size = 26
+text = "Menu"
+
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

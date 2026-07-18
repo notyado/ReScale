@@ -18,7 +18,8 @@ extends CharacterBody2D
 @onready var hp1: TextureRect = $UI/HBoxContainer/hp1
 @onready var hp2: TextureRect = $UI/HBoxContainer/hp2
 @onready var hp3: TextureRect = $UI/HBoxContainer/hp3
-@onready var win_menu: CanvasLayer = $Win_menu
+@onready var win_menu: CanvasLayer = $UI/Win_menu
+@onready var lose_menu: CanvasLayer = $UI/lose_menu
 
 var hp: int = 3
 var current_data: PlayerSizeData
@@ -202,7 +203,8 @@ func apply_stun(duration: float):
 	anim.play("idle")
 
 func die():
-	get_tree().reload_current_scene()
+	get_tree().paused = true
+	lose_menu.show()
 
 func win():
 	get_tree().paused = true
