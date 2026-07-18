@@ -2,6 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://d3le7kpalrv1k" path="res://assets/player_tilesheet.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://nv7nnxwrtx6a" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Resource" uid="uid://c1cmthcehkwl7" path="res://resources/small_data.tres" id="2_dqkch"]
+[ext_resource type="Resource" uid="uid://c88sbx3cpdd0u" path="res://resources/large_data.tres" id="3_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://do8ujl4jlanwd" path="res://scenes/pause_menu.tscn" id="5_qlg0r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(80, 110, 80, 110)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
 atlas = ExtResource("1_3vyb7")
@@ -15,16 +22,24 @@ region = Rect2(0, 0, 80, 110)
 atlas = ExtResource("1_3vyb7")
 region = Rect2(80, 0, 80, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
-atlas = ExtResource("1_3vyb7")
-region = Rect2(0, 110, 80, 110)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("1_3vyb7")
-region = Rect2(80, 110, 80, 110)
+region = Rect2(0, 110, 80, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(80, 110, 80, 109)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}],
+"loop": 1,
+"name": &"dash",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qlg0r")
@@ -51,10 +66,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qhqgy")
+"texture": SubResource("AtlasTexture_dqkch")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dqkch")
+"texture": SubResource("AtlasTexture_smehm")
 }],
 "loop": 1,
 "name": &"run",
@@ -62,20 +77,46 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qlg0r"]
-radius = 17.0
-height = 68.0
+radius = 42.0
+height = 186.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1179285064]
+z_index = 1
 script = ExtResource("1_g2els")
+small_data = ExtResource("2_dqkch")
+large_data = ExtResource("3_qlg0r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=656154848]
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.911864
+offset = Vector2(0, -55)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=742389126]
-position = Vector2(1, 13)
+visible = false
+position = Vector2(3, -106)
 shape = SubResource("CapsuleShape2D_qlg0r")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=464208840]
+position = Vector2(0, -106)
+zoom = Vector2(0.5, 0.5)
+
+[node name="DashGhostTimer" type="Timer" parent="." unique_id=2093047804]
+wait_time = 0.05
+
+[node name="GrowthCheck" type="ShapeCast2D" parent="." unique_id=1813402333]
+visible = false
+position = Vector2(3, -184)
+enabled = false
+shape = SubResource("CapsuleShape2D_fjrip")
+target_position = Vector2(0, 156)
+
+[node name="ghost_marker" type="Marker2D" parent="." unique_id=528396313]
+position = Vector2(0, -137.5)
+
+[node name="pause_menu" parent="." unique_id=204029111 instance=ExtResource("5_qlg0r")]
+
+[connection signal="timeout" from="DashGhostTimer" to="." method="_on_dash_ghost_timer_timeout"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PlayerSizeData" format=3 uid="uid://c88sbx3cpdd0u"]
+
+[ext_resource type="Script" uid="uid://b6uttm0eisfhb" path="res://resources/Player_Size_Data.gd" id="1_vy3i2"]
+
+[resource]
+script = ExtResource("1_vy3i2")
+scale_factor = 2.5
+collision_height = 186.0
+collision_radius = 42.0
+jump_modifer = 1.2
+dash_speed_modifier = 0.8
+dash_duration_modifier = 1.5
+ghost_pos = Vector2(0, -137.5)
+position = Vector2(3, -106)
+metadata/_custom_type_script = "uid://b6uttm0eisfhb"

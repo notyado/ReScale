@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://do8ujl4jlanwd"]
+
+[ext_resource type="Script" uid="uid://cy6cb1pbgcc5d" path="res://scripts/pause_menu.gd" id="1_7l7mv"]
+[ext_resource type="FontFile" uid="uid://ctfyo0r83ob1p" path="res://assets/fonts/Kenney Future Narrow.ttf" id="1_n87rw"]
+[ext_resource type="Texture2D" uid="uid://cvurg2od4fvup" path="res://assets/ui/buttons/blue/button_rectangle_gloss.svg" id="2_5d2l8"]
+[ext_resource type="Texture2D" uid="uid://bxoybwjnj83j8" path="res://assets/ui/buttons/blue/button_rectangle_flat.svg" id="3_7l7mv"]
+[ext_resource type="FontFile" uid="uid://drpxnperqvly5" path="res://assets/fonts/Kenney Future.ttf" id="4_v4r4p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("1_n87rw")
+font_size = 128
+
+[node name="pause_menu" type="CanvasLayer" unique_id=204029111]
+process_mode = 3
+visible = false
+script = ExtResource("1_7l7mv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=312886000]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6784314)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=202890271]
+anchors_preset = -1
+anchor_top = 0.06635802
+anchor_right = 1.0
+anchor_bottom = 0.28858024
+grow_horizontal = 2
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=13531201]
+anchors_preset = -1
+anchor_left = 0.41666666
+anchor_top = 0.38734567
+anchor_right = 0.5833333
+anchor_bottom = 0.75771606
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 22
+metadata/_edit_use_anchors_ = true
+
+[node name="ResumeButton" type="TextureButton" parent="VBoxContainer" unique_id=2023521408]
+layout_mode = 2
+texture_normal = ExtResource("2_5d2l8")
+texture_pressed = ExtResource("3_7l7mv")
+
+[node name="Label" type="Label" parent="VBoxContainer/ResumeButton" unique_id=1794826634]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_v4r4p")
+theme_override_font_sizes/font_size = 26
+text = "Resume"
+
+[node name="RestartButton" type="TextureButton" parent="VBoxContainer" unique_id=592873589]
+layout_mode = 2
+texture_normal = ExtResource("2_5d2l8")
+texture_pressed = ExtResource("3_7l7mv")
+
+[node name="Label" type="Label" parent="VBoxContainer/RestartButton" unique_id=1028988798]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_v4r4p")
+theme_override_font_sizes/font_size = 26
+text = "Restart"
+
+[node name="MenuButton" type="TextureButton" parent="VBoxContainer" unique_id=1382730254]
+layout_mode = 2
+texture_normal = ExtResource("2_5d2l8")
+texture_pressed = ExtResource("3_7l7mv")
+
+[node name="Label" type="Label" parent="VBoxContainer/MenuButton" unique_id=2036475322]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_v4r4p")
+theme_override_font_sizes/font_size = 26
+text = "Menu"
+
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="button_up" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_button_up"]
