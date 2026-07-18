@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d0wsm11md4q81"]
+
+[ext_resource type="Texture2D" uid="uid://c0tusikaw6h23" path="res://assets/environment/tiles/switch_blue.png" id="1_j62dj"]
+[ext_resource type="Script" uid="uid://dn2h6q55tvqcf" path="res://scripts/weight_button.gd" id="1_qwg84"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q45u8"]
+size = Vector2(134, 107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibjn1"]
+size = Vector2(128, 80)
+
+[node name="WeightButton" type="Area2D" unique_id=1618265945]
+script = ExtResource("1_qwg84")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1339099363]
+texture = ExtResource("1_j62dj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=607036285]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_q45u8")
+
+[node name="SolidBase" type="StaticBody2D" parent="." unique_id=1855639538]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SolidBase" unique_id=1501521650]
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_ibjn1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

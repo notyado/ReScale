@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://deoua83tyngjl"]
+
+[ext_resource type="Script" uid="uid://deahfef8x1sph" path="res://scripts/gate.gd" id="1_xwxio"]
+[ext_resource type="Texture2D" uid="uid://ciipcfd4s8bfv" path="res://assets/environment/tiles/block_spikes.png" id="2_hudsw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q45u8"]
+size = Vector2(129, 458.5)
+
+[node name="Gate" type="StaticBody2D" unique_id=1205582747]
+script = ExtResource("1_xwxio")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=556880594]
+texture = ExtResource("2_hudsw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1011348676]
+position = Vector2(0, -109)
+texture = ExtResource("2_hudsw")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=795984137]
+position = Vector2(0, -220)
+texture = ExtResource("2_hudsw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=2103504122]
+position = Vector2(0, -329)
+texture = ExtResource("2_hudsw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1074521891]
+position = Vector2(0, -164.75)
+shape = SubResource("RectangleShape2D_q45u8")
