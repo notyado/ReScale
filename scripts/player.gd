@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var small_data: PlayerSizeData
 @export var large_data: PlayerSizeData
 
-@export var speed: float = 500.0
+@export var speed: float = 400.0
 @export var jump_velocity: float = -1200.0
 @export var gravity_multiplier: float = 1.5
 @export var dash_speed: int = 600
@@ -15,7 +15,11 @@ extends CharacterBody2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var growth_check: ShapeCast2D = $GrowthCheck
 @onready var ghost_marker: Marker2D = $ghost_marker
+@onready var hp1: TextureRect = $UI/HBoxContainer/hp1
+@onready var hp2: TextureRect = $UI/HBoxContainer/hp2
+@onready var hp3: TextureRect = $UI/HBoxContainer/hp3
 
+var hp: int = 3
 var current_data: PlayerSizeData
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * gravity_multiplier
 var coyote_time: float = 0.15
@@ -26,9 +30,13 @@ var is_dashing: bool = false
 var dash_timer: float = 0.0
 var can_dash: bool = true
 var cooldown_timer: float = 0.0
+var is_attack: bool = false
+var is_invulnerable: bool = false
+var is_stunned: bool = false
 
 func _ready() -> void:
 	current_data = large_data
+	apply_size(current_data)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("switch_size"):
@@ -58,7 +66,7 @@ func apply_size(data: PlayerSizeData):
 	tween.tween_property(collision_shape.shape, "height", data.collision_height, 0.2)
 	tween.tween_property(collision_shape, "position", data.position, 0.2)
 	
-	speed = 500.0 * data.speed_modifer
+	speed = 400.0 * data.speed_modifer
 	jump_velocity = -1000 * data.jump_modifer
 
 func play_denied_effect():
@@ -75,6 +83,10 @@ func play_denied_effect():
 	color_tween.tween_property(anim, "modulate", Color.WHITE, 0.1)
 
 func _physics_process(delta: float) -> void:
+	if is_stunned:
+		move_and_slide()
+		return
+	
 	if cooldown_timer > 0:
 		cooldown_timer -= delta
 		can_dash = false
@@ -100,7 +112,7 @@ func _physics_process(delta: float) -> void:
 		jump_buffer_timer = jump_buffer_time
 	else:
 		jump_buffer_timer -= delta
-
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
@@ -156,6 +168,39 @@ func _on_dash_ghost_timer_timeout() -> void:
 		spawn_dash_ghost()
 	else:
 		dash_ghost_timer.stop()
+
+func take_damage(pos: Vector2):
+	if is_invulnerable: return
+	
+	hp -= 1
+	is_invulnerable = true
+	var knockback_dir = (global_position - pos).normalized()
+	velocity = knockback_dir * 600
+	anim.play("hurt")
+	modulate = Color.RED
+	await get_tree().create_timer(0.4).timeout
+	modulate = Color.WHITE
+	is_invulnerable = false
+	
+	if hp == 2:
+		hp1.hide()
+	elif hp == 1:
+		hp2.hide()
+	elif hp <= 0:
+		hp3.hide()
+		die()
+
+func apply_stun(duration: float):
+	if is_stunned: return
+	
+	is_stunned = true
+	velocity = Vector2.ZERO
+	await get_tree().create_timer(duration).timeout
+	is_stunned = false
+	anim.play("idle")
+
+func die():
+	get_tree().reload_current_scene()
 
 func update_animation(dir: float) -> void:
 	if is_dashing:

@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bapgqs4vil5pf"]
+
+[ext_resource type="Texture2D" uid="uid://edmu3v0nw3cf" path="res://assets/zombie_tilesheet.png" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://b04wcsdciuio2" path="res://scripts/enemy.gd" id="1_md0e3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(400, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(480, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(0, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(0, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nenq2"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(80, 110, 80, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md0e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ra3w")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4w8v")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nenq2")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yf5fn"]
+radius = 24.0
+height = 104.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m14g2"]
+radius = 838.02924
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(90, 123)
+
+[node name="enemy" type="CharacterBody2D" unique_id=287255908 groups=["enemy"]]
+script = ExtResource("1_md0e3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1364010488]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1026586510]
+position = Vector2(2, -61)
+shape = SubResource("CapsuleShape2D_yf5fn")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1772649840]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=297673853]
+position = Vector2(0, -72)
+shape = SubResource("CircleShape2D_m14g2")
+
+[node name="AttackPivot" type="Node2D" parent="." unique_id=2072615138]
+
+[node name="AttackZone" type="Area2D" parent="AttackPivot" unique_id=89919441]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackPivot/AttackZone" unique_id=870975867]
+position = Vector2(35, -62.5)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="AttackPivot/AttackZone" to="." method="_on_attack_zone_body_entered"]

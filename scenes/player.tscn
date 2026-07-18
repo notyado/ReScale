@@ -5,12 +5,17 @@
 [ext_resource type="Resource" uid="uid://c1cmthcehkwl7" path="res://resources/small_data.tres" id="2_dqkch"]
 [ext_resource type="Resource" uid="uid://c88sbx3cpdd0u" path="res://resources/large_data.tres" id="3_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://do8ujl4jlanwd" path="res://scenes/pause_menu.tscn" id="5_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://dcb6ja5g6ebmj" path="res://assets/environment/tiles/heart.png" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(80, 110, 80, 110)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(160, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(160, 0, 80, 110)
 
@@ -50,6 +55,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}],
+"loop": 2,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_g2els")
 }],
 "loop": 1,
@@ -82,7 +95,7 @@ height = 186.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1179285064]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1179285064 groups=["player"]]
 z_index = 1
 script = ExtResource("1_g2els")
 small_data = ExtResource("2_dqkch")
@@ -91,12 +104,11 @@ large_data = ExtResource("3_qlg0r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=656154848]
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"idle"
+animation = &"dash"
 autoplay = "idle"
 offset = Vector2(0, -55)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=742389126]
-visible = false
 position = Vector2(3, -106)
 shape = SubResource("CapsuleShape2D_qlg0r")
 
@@ -108,7 +120,6 @@ zoom = Vector2(0.5, 0.5)
 wait_time = 0.05
 
 [node name="GrowthCheck" type="ShapeCast2D" parent="." unique_id=1813402333]
-visible = false
 position = Vector2(3, -184)
 enabled = false
 shape = SubResource("CapsuleShape2D_fjrip")
@@ -118,5 +129,25 @@ target_position = Vector2(0, 156)
 position = Vector2(0, -137.5)
 
 [node name="pause_menu" parent="." unique_id=204029111 instance=ExtResource("5_qlg0r")]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=767969816]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=253723636]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = -50
+
+[node name="hp1" type="TextureRect" parent="UI/HBoxContainer" unique_id=890641807]
+layout_mode = 2
+texture = ExtResource("6_tuyoq")
+
+[node name="hp2" type="TextureRect" parent="UI/HBoxContainer" unique_id=359733102]
+layout_mode = 2
+texture = ExtResource("6_tuyoq")
+
+[node name="hp3" type="TextureRect" parent="UI/HBoxContainer" unique_id=163652861]
+layout_mode = 2
+texture = ExtResource("6_tuyoq")
 
 [connection signal="timeout" from="DashGhostTimer" to="." method="_on_dash_ghost_timer_timeout"]
