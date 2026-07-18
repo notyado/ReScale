@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://bwtk1kwu6u07g"]
+
+[ext_resource type="Script" uid="uid://mrw7sjoqyx72" path="res://scripts/lvl_menu.gd" id="1_ml6cd"]
+[ext_resource type="Texture2D" uid="uid://cdmg4wksa2g3y" path="res://assets/environment/backgrounds/background_solid_sky.png" id="2_clowt"]
+[ext_resource type="Texture2D" uid="uid://cujakk6oply0s" path="res://assets/ui/clouds/cloud1.png" id="3_0fv8s"]
+[ext_resource type="Texture2D" uid="uid://c0moa5cgfgcch" path="res://assets/ui/clouds/cloud8.png" id="4_1wful"]
+[ext_resource type="Texture2D" uid="uid://ft7052hdod5m" path="res://assets/ui/clouds/cloud3.png" id="5_u00l1"]
+[ext_resource type="Texture2D" uid="uid://c6a4ce68nj0af" path="res://assets/ui/clouds/cloud5.png" id="6_rd1b8"]
+[ext_resource type="Texture2D" uid="uid://d0teyvg3bc8ao" path="res://assets/ui/buttons/blue/arrow_decorative_w.svg" id="7_0fv8s"]
+[ext_resource type="Texture2D" uid="uid://kd37jrjlnfvo" path="res://assets/ui/buttons/blue/arrow_decorative_w_small.svg" id="8_1wful"]
+
+[node name="LvlMenu" type="Control" unique_id=743027921]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ml6cd")
+
+[node name="UiRoot" type="Control" parent="." unique_id=1057369017]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="UiRoot" unique_id=1487620775]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_clowt")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="Parallax2D_Far" type="Parallax2D" parent="UiRoot" unique_id=1808630359]
+modulate = Color(1, 1, 1, 0.58431375)
+repeat_size = Vector2(1300, 0)
+autoscroll = Vector2(20, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="UiRoot/Parallax2D_Far" unique_id=2098894018]
+position = Vector2(617.75006, 222.0625)
+scale = Vector2(0.37105185, 0.3927165)
+texture = ExtResource("3_0fv8s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="UiRoot/Parallax2D_Far" unique_id=1867146607]
+position = Vector2(1030.5, 316.125)
+scale = Vector2(0.28095222, 0.37184885)
+texture = ExtResource("4_1wful")
+
+[node name="Sprite2D3" type="Sprite2D" parent="UiRoot/Parallax2D_Far" unique_id=1376163870]
+position = Vector2(627, 40)
+scale = Vector2(0.47175142, 0.33471075)
+texture = ExtResource("5_u00l1")
+
+[node name="Sprite2D5" type="Sprite2D" parent="UiRoot/Parallax2D_Far" unique_id=957348622]
+position = Vector2(575, 431)
+scale = Vector2(0.4879944, 0.30475214)
+texture = ExtResource("5_u00l1")
+
+[node name="Sprite2D4" type="Sprite2D" parent="UiRoot/Parallax2D_Far" unique_id=421538592]
+position = Vector2(189, 602)
+scale = Vector2(0.28781503, 0.40555573)
+texture = ExtResource("6_rd1b8")
+
+[node name="Sprite2D6" type="Sprite2D" parent="UiRoot/Parallax2D_Far" unique_id=1384387314]
+position = Vector2(298.99988, 51.99991)
+scale = Vector2(0.2952381, 0.44327748)
+texture = ExtResource("4_1wful")
+
+[node name="Sprite2D7" type="Sprite2D" parent="UiRoot/Parallax2D_Far" unique_id=679439396]
+position = Vector2(810, 523)
+scale = Vector2(0.3333333, 0.4133404)
+texture = ExtResource("4_1wful")
+
+[node name="Parallax2D_Near" type="Parallax2D" parent="UiRoot" unique_id=700936254]
+repeat_size = Vector2(1300, 0)
+autoscroll = Vector2(50, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="UiRoot/Parallax2D_Near" unique_id=2093053920]
+position = Vector2(993, 27.999992)
+scale = Vector2(1.1789473, 1.3188976)
+texture = ExtResource("3_0fv8s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="UiRoot/Parallax2D_Near" unique_id=2068311737]
+position = Vector2(141, 33)
+texture = ExtResource("4_1wful")
+
+[node name="Sprite2D3" type="Sprite2D" parent="UiRoot/Parallax2D_Near" unique_id=162034783]
+position = Vector2(826.13, 268)
+texture = ExtResource("5_u00l1")
+
+[node name="Sprite2D5" type="Sprite2D" parent="UiRoot/Parallax2D_Near" unique_id=666768020]
+position = Vector2(548, 652)
+scale = Vector2(2.512712, 2.1301653)
+texture = ExtResource("5_u00l1")
+
+[node name="Sprite2D4" type="Sprite2D" parent="UiRoot/Parallax2D_Near" unique_id=2048547651]
+position = Vector2(98, 460)
+scale = Vector2(1.3403361, 1.4333333)
+texture = ExtResource("6_rd1b8")
+
+[node name="Sprite2D6" type="Sprite2D" parent="UiRoot/Parallax2D_Near" unique_id=560059827]
+position = Vector2(1022, 543)
+scale = Vector2(0.9238095, 1.2563025)
+texture = ExtResource("4_1wful")
+
+[node name="Sprite2D7" type="Sprite2D" parent="UiRoot/Parallax2D_Near" unique_id=877350652]
+position = Vector2(160, 239)
+scale = Vector2(0.9238095, 0.6754199)
+texture = ExtResource("4_1wful")
+
+[node name="BackButton" type="TextureButton" parent="UiRoot" unique_id=855538515]
+layout_mode = 1
+offset_right = 50.0
+offset_bottom = 50.0
+tooltip_text = "Back"
+texture_normal = ExtResource("7_0fv8s")
+texture_pressed = ExtResource("8_1wful")
+stretch_mode = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="UiRoot" unique_id=1907488655]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -57.0
+offset_right = 120.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UiRoot/CenterContainer" unique_id=1253182167]
+layout_mode = 2
+
+[node name="MenuTitle" type="Label" parent="UiRoot/CenterContainer/VBoxContainer" unique_id=664901463]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.7882353, 0.87058824, 0.8980392, 1)
+theme_override_colors/font_outline_color = Color(0.9098039, 0.9490196, 0.9607843, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 6
+theme_override_font_sizes/font_size = 80
+text = "Levels"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="UiRoot/CenterContainer/VBoxContainer" unique_id=1881879858]
+layout_mode = 2
+theme_override_constants/h_separation = 15
+columns = 4
+
+[node name="FadeOverlay" type="ColorRect" parent="." unique_id=1134160084]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="UiRoot/BackButton" to="." method="_on_back_button_pressed"]

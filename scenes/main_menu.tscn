@@ -39,9 +39,15 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 mouse_filter = 1
+theme_override_colors/font_shadow_color = Color(0.7882353, 0.87058824, 0.8980392, 1)
+theme_override_colors/font_outline_color = Color(0.9098039, 0.9490196, 0.9607843, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 6
 theme_override_fonts/font = ExtResource("3_flqon")
 theme_override_font_sizes/font_size = 111
 text = "Re:Scale"
+horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Background" unique_id=805836786]
 layout_mode = 1

@@ -85,7 +85,7 @@ func _on_button_exited() -> void: is_hovering_button = false
 
 func _on_play_button_pressed() -> void:
 	play_button.disabled = true 
-	fade_overlay.color = Color.BLACK
+	fade_overlay.color = Color.WHITE
 	
 	var center_screen = get_viewport().get_visible_rect().size / 2
 	var outro_offset = center_screen * (Vector2.ONE - outro_zoom_target)
@@ -103,5 +103,5 @@ func _on_play_button_pressed() -> void:
 	outro_tween.tween_property(near_clouds, "position", outro_offset, 0.6).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	
 	outro_tween.chain().tween_callback(func():
-		get_tree().change_scene_to_file("res://scenes/base_lvl.tscn")
+		get_tree().change_scene_to_file("res://scenes/lvl_menu.tscn")
 	)
