@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://0qsxhfu60sgw"]
+
+[ext_resource type="Script" uid="uid://55s8uvu8b8bl" path="res://scripts/door.gd" id="1_83dcw"]
+[ext_resource type="Texture2D" uid="uid://3ewa1ljfyrbk" path="res://assets/environment/tiles/door_closed.png" id="1_uvdjg"]
+[ext_resource type="Texture2D" uid="uid://b1k2wg36ternt" path="res://assets/environment/tiles/door_open.png" id="2_83dcw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uvdjg")
+}],
+"loop": 1,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_83dcw")
+}],
+"loop": 1,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m14g2"]
+size = Vector2(257, 256)
+
+[node name="Door" type="Area2D" unique_id=1792424333]
+script = ExtResource("1_83dcw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1565226477]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"close"
+autoplay = "close"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1387115073]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_m14g2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

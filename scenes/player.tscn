@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://c1cmthcehkwl7" path="res://resources/small_data.tres" id="2_dqkch"]
 [ext_resource type="Resource" uid="uid://c88sbx3cpdd0u" path="res://resources/large_data.tres" id="3_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://do8ujl4jlanwd" path="res://scenes/pause_menu.tscn" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://dhb37bxi6fs28" path="res://scenes/win_menu.tscn" id="6_fjrip"]
 [ext_resource type="Texture2D" uid="uid://dcb6ja5g6ebmj" path="res://assets/environment/tiles/heart.png" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
@@ -15,9 +16,9 @@ region = Rect2(80, 110, 80, 110)
 atlas = ExtResource("1_3vyb7")
 region = Rect2(160, 0, 80, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
 atlas = ExtResource("1_3vyb7")
-region = Rect2(160, 0, 80, 110)
+region = Rect2(320, 0, 80, 110)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -55,7 +56,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d2wvv")
+"texture": SubResource("AtlasTexture_ur7pv")
 }],
 "loop": 2,
 "name": &"hurt",
@@ -104,7 +105,7 @@ large_data = ExtResource("3_qlg0r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=656154848]
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"dash"
+animation = &"idle"
 autoplay = "idle"
 offset = Vector2(0, -55)
 
@@ -129,6 +130,8 @@ target_position = Vector2(0, 156)
 position = Vector2(0, -137.5)
 
 [node name="pause_menu" parent="." unique_id=204029111 instance=ExtResource("5_qlg0r")]
+
+[node name="Win_menu" parent="." unique_id=1993000232 instance=ExtResource("6_fjrip")]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=767969816]
 

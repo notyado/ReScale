@@ -18,6 +18,7 @@ extends CharacterBody2D
 @onready var hp1: TextureRect = $UI/HBoxContainer/hp1
 @onready var hp2: TextureRect = $UI/HBoxContainer/hp2
 @onready var hp3: TextureRect = $UI/HBoxContainer/hp3
+@onready var win_menu: CanvasLayer = $Win_menu
 
 var hp: int = 3
 var current_data: PlayerSizeData
@@ -33,6 +34,7 @@ var cooldown_timer: float = 0.0
 var is_attack: bool = false
 var is_invulnerable: bool = false
 var is_stunned: bool = false
+var key: bool = false
 
 func _ready() -> void:
 	current_data = large_data
@@ -201,6 +203,10 @@ func apply_stun(duration: float):
 
 func die():
 	get_tree().reload_current_scene()
+
+func win():
+	get_tree().paused = true
+	win_menu.show()
 
 func update_animation(dir: float) -> void:
 	if is_dashing:

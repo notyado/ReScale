@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b66qy73wuppfm"]
+
+[ext_resource type="Script" uid="uid://c4xa645hhlw15" path="res://scripts/key.gd" id="1_fttkb"]
+[ext_resource type="Texture2D" uid="uid://cof5qml038ntq" path="res://assets/environment/tiles/key_yellow.png" id="1_yk2u2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ndie3"]
+radius = 146.27713
+
+[node name="Key" type="Area2D" unique_id=1418549606]
+script = ExtResource("1_fttkb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=982745427]
+texture = ExtResource("1_yk2u2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1813057440]
+shape = SubResource("CircleShape2D_ndie3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

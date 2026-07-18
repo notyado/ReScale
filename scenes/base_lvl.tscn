@@ -30,7 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://b31rdbrvcwn53" path="res://assets/environment/tiles/terrain_grass_block_right.png" id="27_18jna"]
 [ext_resource type="Texture2D" uid="uid://bdqwh1mbsae76" path="res://assets/environment/tiles/terrain_grass_block_top.png" id="28_7e61a"]
 [ext_resource type="PackedScene" uid="uid://cjtawqjy3psep" path="res://scenes/player.tscn" id="30_3je37"]
-[ext_resource type="PackedScene" uid="uid://bapgqs4vil5pf" path="res://scenes/enemy.tscn" id="31_m14g2"]
+[ext_resource type="PackedScene" uid="uid://0qsxhfu60sgw" path="res://scenes/door.tscn" id="31_m14g2"]
+[ext_resource type="PackedScene" uid="uid://b66qy73wuppfm" path="res://scenes/key.tscn" id="32_7jvvf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1r2eg"]
 texture = ExtResource("1_oq2nj")
@@ -245,8 +246,11 @@ position = Vector2(126, -139)
 [node name="tilemap" type="Node2D" parent="." unique_id=1387038283]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="tilemap" unique_id=257929231]
-tile_map_data = PackedByteArray("AAAAAAAACQAAAAAAAAABAAAACQAAAAAAAAACAAAACQAAAAAAAAADAAAACQAAAAAAAAAEAAAACQAAAAAAAAAFAAAACQAAAAAAAAAGAAAACQAAAAAAAAAHAAAACQAAAAAAAAAIAAAACQAAAAAAAAAJAAAACQAAAAAAAAAKAAAACQAAAAAAAAALAAAACQAAAAAAAAAMAAAACQAAAAAAAAANAAAACQAAAAAAAAAOAAAACQAAAAAAAAAPAAAACQAAAAAAAAAQAAAACQAAAAAAAAARAAAACQAAAAAAAAASAAAACQAAAAAAAAATAAAACQAAAAAAAAAUAAAACQAAAAAAAAAVAAAACQAAAAAAAAAWAAAACQAAAAAAAAAXAAAACQAAAAAAAAAYAAAACQAAAAAAAAAZAAAACQAAAAAAAAAaAAAACQAAAAAAAAAbAAAACQAAAAAAAAAcAAAACQAAAAAAAAAdAAAACQAAAAAAAAAeAAAACQAAAAAAAAAfAAAACQAAAAAAAAAgAAAACQAAAAAAAAAhAAAACQAAAAAAAAAiAAAACQAAAAAAAAAjAAAACQAAAAAAAAAkAAAACQAAAAAAAAAlAAAACQAAAAAAAAAmAAAACQAAAAAAAAAnAAAACQAAAAAAAAAoAAAACQAAAAAAAAApAAAACQAAAAAAAAAqAAAACQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAACQAAAAAAAAABAAAACQAAAAAAAAACAAAACQAAAAAAAAADAAAACQAAAAAAAAAEAAAACQAAAAAAAAAFAAAACQAAAAAAAAAGAAAACQAAAAAAAAAHAAAACQAAAAAAAAAIAAAACQAAAAAAAAAJAAAACQAAAAAAAAAKAAAACQAAAAAAAAALAAAACQAAAAAAAAAMAAAACQAAAAAAAAANAAAACQAAAAAAAAAOAAAACQAAAAAAAAAPAAAACQAAAAAAAAAQAAAACQAAAAAAAAARAAAACQAAAAAAAAASAAAACQAAAAAAAAAKAP//CQAAAAAAAAALAP//CQAAAAAAAAAMAP//CQAAAAAAAAANAP//CQAAAAAAAAAOAP//CQAAAAAAAAAPAP//CQAAAAAAAAAMAP7/CQAAAAAAAAANAP7/CQAAAAAAAAAOAP7/CQAAAAAAAAA=")
 tile_set = SubResource("TileSet_3gngh")
 
-[node name="enemy" parent="." unique_id=287255908 instance=ExtResource("31_m14g2")]
-position = Vector2(2111, -11)
+[node name="Door" parent="." unique_id=1792424333 instance=ExtResource("31_m14g2")]
+position = Vector2(1734, -377)
+
+[node name="Key" parent="." unique_id=1418549606 instance=ExtResource("32_7jvvf")]
+position = Vector2(2288, -88)
