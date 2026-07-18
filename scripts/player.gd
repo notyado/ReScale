@@ -20,6 +20,7 @@ extends CharacterBody2D
 @onready var hp3: TextureRect = $UI/HBoxContainer/hp3
 @onready var win_menu: CanvasLayer = $UI/Win_menu
 @onready var lose_menu: CanvasLayer = $UI/lose_menu
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 var hp: int = 3
 var current_data: PlayerSizeData
@@ -28,14 +29,16 @@ var coyote_time: float = 0.15
 var coyote_timer: float = 0.0
 var jump_buffer_time: float = 0.15
 var jump_buffer_timer: float = 0.0
-var is_dashing: bool = false
+var run_sound_timer: float = 0.0
+var run_sound_interval: float = 0.35
 var dash_timer: float = 0.0
-var can_dash: bool = true
 var cooldown_timer: float = 0.0
+var can_dash: bool = true
 var is_attack: bool = false
 var is_invulnerable: bool = false
 var is_stunned: bool = false
 var key: bool = false
+var is_dashing: bool = false
 
 func _ready() -> void:
 	current_data = large_data
@@ -113,6 +116,7 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer = jump_buffer_time
+		audio.play_sfx("jump")
 	else:
 		jump_buffer_timer -= delta
 	
@@ -129,15 +133,23 @@ func _physics_process(delta: float) -> void:
 
 	var dir = Input.get_axis("left", "right")
 	if dir != 0:
+		if is_on_floor():
+			run_sound_timer -= delta
+			if run_sound_timer <= 0:
+				audio.play_sfx("run")
+				run_sound_timer = run_sound_interval
+		
 		velocity.x = move_toward(velocity.x, dir * speed, 50)
 		anim.flip_h = (dir < 0)
 	else:
+		run_sound_timer = 0
 		velocity.x = move_toward(velocity.x, 0, 50)
 	
 	update_animation(dir)
 	move_and_slide()
 
 func start_dash():
+	audio.play_sfx("dash")
 	is_dashing = true
 	dash_timer = dash_duration * current_data.dash_duration_modifier
 	cooldown_timer = dash_cooldown
@@ -180,6 +192,7 @@ func take_damage(pos: Vector2):
 	var knockback_dir = (global_position - pos).normalized()
 	velocity = knockback_dir * 600
 	anim.play("hurt")
+	audio.play_sfx("hurt")
 	modulate = Color.RED
 	await get_tree().create_timer(0.4).timeout
 	modulate = Color.WHITE

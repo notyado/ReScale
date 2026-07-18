@@ -23,7 +23,6 @@ func _physics_process(delta: float) -> void:
 	
 	if player:
 		var dir = (player.global_position - global_position).normalized()
-		
 		dir.y = 0 
 		
 		if player.current_data.scale_factor > 1.2:
@@ -36,6 +35,7 @@ func _physics_process(delta: float) -> void:
 			anim.flip_h = velocity.x < 0
 			
 		anim.play("run")
+		SoundManager.play_enemy_step()
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		anim.play("idle")

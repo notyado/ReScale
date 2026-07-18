@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://dhb37bxi6fs28" path="res://scenes/win_menu.tscn" id="6_fjrip"]
 [ext_resource type="Texture2D" uid="uid://dcb6ja5g6ebmj" path="res://assets/environment/tiles/heart.png" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://deee5m47iqmby" path="res://scenes/lose_menu.tscn" id="8_smehm"]
+[ext_resource type="Script" uid="uid://hrs8apcefbax" path="res://scripts/PlayerSound.gd" id="9_ur7pv"]
+[ext_resource type="AudioStream" uid="uid://bvcuroucebqp2" path="res://assets/audio/step.mp3" id="10_jej6c"]
+[ext_resource type="AudioStream" uid="uid://80yogxrj2r28" path="res://assets/audio/jump.mp3" id="11_f1ej7"]
+[ext_resource type="AudioStream" uid="uid://1tsjiek1yr4y" path="res://assets/audio/damage.mp3" id="12_oprun"]
+[ext_resource type="AudioStream" uid="uid://bpeulpta0urc" path="res://assets/audio/dash.mp3" id="13_a8ls1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("1_3vyb7")
@@ -155,5 +160,13 @@ texture = ExtResource("6_tuyoq")
 [node name="Win_menu" parent="UI" unique_id=1993000232 instance=ExtResource("6_fjrip")]
 
 [node name="lose_menu" parent="UI" unique_id=765463959 instance=ExtResource("8_smehm")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=932895978]
+volume_db = -15.0
+script = ExtResource("9_ur7pv")
+sound_run = ExtResource("10_jej6c")
+sound_jump = ExtResource("11_f1ej7")
+sound_hurt = ExtResource("12_oprun")
+sound_dash = ExtResource("13_a8ls1")
 
 [connection signal="timeout" from="DashGhostTimer" to="." method="_on_dash_ghost_timer_timeout"]
