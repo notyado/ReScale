@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cedya0dhy1ied"]
+
+[ext_resource type="Script" uid="uid://bk47cfg215uw8" path="res://scripts/glass_bridge.gd" id="1_5fkn7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q45u8"]
+size = Vector2(429, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibjn1"]
+size = Vector2(429, 22)
+
+[node name="GlassBridge" type="StaticBody2D" unique_id=471312994]
+script = ExtResource("1_5fkn7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1151623384]
+offset_right = 429.0
+offset_bottom = 15.0
+color = Color(0.3137255, 0.6784314, 1, 0.3529412)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1279232855]
+position = Vector2(214.5, 7.5)
+shape = SubResource("RectangleShape2D_q45u8")
+
+[node name="Detector" type="Area2D" parent="." unique_id=12598537]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=1439264315]
+position = Vector2(214.5, 4)
+shape = SubResource("RectangleShape2D_ibjn1")
+
+[connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
