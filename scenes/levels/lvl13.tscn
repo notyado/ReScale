@@ -1,0 +1,53 @@
+[gd_scene format=4 uid="uid://dh11neivxsg0w"]
+
+[ext_resource type="PackedScene" uid="uid://c6gdst8e3wnl" path="res://scenes/base_lvl.tscn" id="1_34npl"]
+[ext_resource type="PackedScene" uid="uid://cedya0dhy1ied" path="res://scenes/glass_bridge.tscn" id="2_i4tua"]
+[ext_resource type="PackedScene" uid="uid://c8scts01fe7hv" path="res://scenes/spike.tscn" id="3_20d08"]
+[ext_resource type="PackedScene" uid="uid://bapgqs4vil5pf" path="res://scenes/enemy.tscn" id="4_3qbky"]
+[ext_resource type="PackedScene" uid="uid://deoua83tyngjl" path="res://scenes/gate.tscn" id="4_slxf5"]
+[ext_resource type="PackedScene" uid="uid://0qsxhfu60sgw" path="res://scenes/door.tscn" id="5_slxf5"]
+[ext_resource type="PackedScene" uid="uid://coi7smigq05sw" path="res://scenes/spring.tscn" id="6_nj4g2"]
+[ext_resource type="PackedScene" uid="uid://d0wsm11md4q81" path="res://scenes/weight_button.tscn" id="8_nj4g2"]
+[ext_resource type="PackedScene" uid="uid://b66qy73wuppfm" path="res://scenes/key.tscn" id="9_4huip"]
+
+[node name="lvl" unique_id=406329907 instance=ExtResource("1_34npl")]
+
+[node name="CharacterBody2D" parent="." index="0" unique_id=1179285064]
+position = Vector2(309, 101)
+
+[node name="TileMapLayer" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="0" unique_id=257929231]
+tile_map_data = PackedByteArray("AAD1/wEACQAAAAAAAAD1/wIAAwAAAAAAAAD2/wEACQAAAAAAAAD2/wIAAwAAAAAAAAD3/wEACQAAAAAAAAD3/wIAAwAAAAAAAAD4/wEACQAAAAAAAAD4/wIAAwAAAAAAAAD5/wEACQAAAAAAAAD5/wIAAwAAAAAAAAD6/wEACQAAAAAAAAD6/wIAAwAAAAAAAAD7/wEACQAAAAAAAAD7/wIAAwAAAAAAAAD8/wEACQAAAAAAAAD8/wIAAwAAAAAAAAD9/wEACQAAAAAAAAD9/wIAAwAAAAAAAAD+/wEACQAAAAAAAAD+/wIAAwAAAAAAAAD//wEACQAAAAAAAAD//wIAAwAAAAAAAAAAAAEACQAAAAAAAAAAAAIAAwAAAAAAAAABAAEACQAAAAAAAAABAAIAAwAAAAAAAAACAAEACQAAAAAAAAACAAIAAwAAAAAAAAADAAEACQAAAAAAAAADAAIAAwAAAAAAAAAEAAEACQAAAAAAAAAEAAIAAwAAAAAAAAAFAAEACQAAAAAAAAAFAAIAAwAAAAAAAAAGAAEACQAAAAAAAAAGAAIAAwAAAAAAAAAHAAEACwAAAAAAAAAHAAIABQAAAAAAAADz/wEACgAAAAAAAADz/wIABAAAAAAAAAD0/wEACQAAAAAAAAD0/wIAAwAAAAAAAAAPAP//EwAAAAAAAAAQAP//FAAAAAAAAAASAP7/EwAAAAAAAAATAP7/FAAAAAAAAAAVAP3/EwAAAAAAAAAWAP3/FAAAAAAAAAAOAPb/CQAAAAAAAAAOAPf/AwAAAAAAAAAOAPn/CQAAAAAAAAAOAPr/AwAAAAAAAAAPAPn/CQAAAAAAAAAPAPr/AwAAAAAAAAAQAPn/CwAAAAAAAAAQAPr/BQAAAAAAAAANAPr/AwAAAAAAAAALAPb/CgAAAAAAAAALAPf/BAAAAAAAAAAMAPb/CQAAAAAAAAAMAPf/AwAAAAAAAAANAPb/CQAAAAAAAAANAPf/AwAAAAAAAAANAPn/CQAAAAAAAAAFAPr/BAAAAAAAAAAGAPn/BgAAAAAAAAAGAPr/AwAAAAAAAAAKAPn/CQAAAAAAAAAKAPr/AwAAAAAAAAALAPn/CQAAAAAAAAALAPr/AwAAAAAAAAAMAPn/CQAAAAAAAAAMAPr/AwAAAAAAAAAHAPn/CQAAAAAAAAAHAPr/AwAAAAAAAAAIAPn/CQAAAAAAAAAIAPr/AwAAAAAAAAAJAPn/CQAAAAAAAAAJAPr/AwAAAAAAAAAFAPn/BwAAAAAAAAAFAPj/BwAAAAAAAAAFAPf/BwAAAAAAAAAFAPb/BwAAAAAAAAAGAPb/CAAAAAAAAAAGAPf/CAAAAAAAAAAGAPj/CAAAAAAAAAAPAPD/CgAAAAAAAAAPAPH/BwAAAAAAAAAPAPL/BwAAAAAAAAAPAPP/BwAAAAAAAAAPAPT/BwAAAAAAAAAPAPX/BwAAAAAAAAAQAPD/CwAAAAAAAAAQAPH/CAAAAAAAAAAQAPL/CAAAAAAAAAAQAPP/CAAAAAAAAAAQAPT/CAAAAAAAAAAQAPX/CAAAAAAAAAAPAPb/BgAAAAAAAAAQAPb/CAAAAAAAAAAQAPf/BQAAAAAAAAAPAPf/AwAAAAAAAAAOAPP/AgAAAAAAAAAFAPX/CgAAAAAAAAAGAPX/CwAAAAAAAAAFAPP/EwAAAAAAAAAGAPP/FAAAAAAAAAA=")
+
+[node name="GlassBridge" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="1" unique_id=471312994 instance=ExtResource("2_i4tua")]
+position = Vector2(1222, 30)
+
+[node name="spike" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="2" unique_id=2009879807 instance=ExtResource("3_20d08")]
+position = Vector2(2487, -253)
+
+[node name="Gate" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="3" unique_id=1205582747 instance=ExtResource("4_slxf5")]
+position = Vector2(1475, -1338)
+
+[node name="enemy" parent="." index="6" unique_id=287255908 instance=ExtResource("4_3qbky")]
+position = Vector2(-1032, 131)
+
+[node name="Door" parent="." index="7" unique_id=1792424333 instance=ExtResource("5_slxf5")]
+position = Vector2(-1503, 1)
+
+[node name="spike" parent="." index="8" unique_id=927363509 instance=ExtResource("3_20d08")]
+position = Vector2(2103, -125)
+
+[node name="Spring" parent="." index="9" unique_id=60396382 instance=ExtResource("6_nj4g2")]
+position = Vector2(2877, -443)
+
+[node name="WeightButton" parent="." index="10" unique_id=1618265945 node_paths=PackedStringArray("target_gate") instance=ExtResource("8_nj4g2")]
+position = Vector2(1859, -1339)
+target_gate = NodePath("../tilemap/Gate")
+
+[node name="enemy2" parent="." index="11" unique_id=753224410 instance=ExtResource("4_3qbky")]
+position = Vector2(1635, -1279)
+
+[node name="Key" parent="." index="12" unique_id=1418549606 instance=ExtResource("9_4huip")]
+position = Vector2(1857, -1709)
+
+[node name="Spring2" parent="." index="13" unique_id=702396873 instance=ExtResource("6_nj4g2")]
+position = Vector2(979, -955)
