@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Re:Scale"
+config/version="1.0.0"
 run/main_scene="uid://kpn2ih7w88n3"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://6fmfnld7bwqm"
 
 [autoload]
 
@@ -21,6 +22,7 @@ SoundManager="*uid://diohp8mkltnqt"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

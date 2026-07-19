@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c0moa5cgfgcch" path="res://assets/ui/clouds/cloud8.png" id="8_lgwnu"]
 [ext_resource type="Texture2D" uid="uid://ft7052hdod5m" path="res://assets/ui/clouds/cloud3.png" id="9_flqon"]
 [ext_resource type="Texture2D" uid="uid://c6a4ce68nj0af" path="res://assets/ui/clouds/cloud5.png" id="10_rcqid"]
+[ext_resource type="Texture2D" uid="uid://da73vquf86u7o" path="res://assets/ui/buttons/red/check_square_color_cross.svg" id="11_lgwnu"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1214823307]
 script = ExtResource("1_5dd4i")
@@ -175,4 +176,15 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
+[node name="ExitButton" type="TextureButton" parent="." unique_id=538657473]
+anchors_preset = -1
+anchor_left = 0.011284722
+anchor_top = 0.018518519
+anchor_right = 0.046006944
+anchor_bottom = 0.0787037
+texture_normal = ExtResource("11_lgwnu")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="Background/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
