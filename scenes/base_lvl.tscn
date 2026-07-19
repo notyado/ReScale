@@ -240,7 +240,7 @@ sources/30 = SubResource("TileSetAtlasSource_ltjfj")
 sources/31 = SubResource("TileSetAtlasSource_3je37")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(28057, 442)
+size = Vector2(43868, 442)
 
 [sub_resource type="Animation" id="Animation_dmsfr"]
 length = 0.001
@@ -299,7 +299,7 @@ tile_set = SubResource("TileSet_3gngh")
 [node name="lose_area" type="Area2D" parent="." unique_id=1065475077]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lose_area" unique_id=2078847358]
-position = Vector2(8672.5, 1998)
+position = Vector2(2808, 1998)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=678495720]
@@ -314,6 +314,7 @@ offset_bottom = 711.0
 texture = ExtResource("31_m14g2")
 
 [node name="lbl" type="CanvasLayer" parent="." unique_id=465249626]
+layer = 0
 
 [node name="Label" type="Label" parent="lbl" unique_id=1916051677]
 modulate = Color(1, 1, 1, 0)

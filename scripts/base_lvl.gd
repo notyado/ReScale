@@ -6,6 +6,10 @@ extends Node2D
 var current_num_level: int
 
 func _ready() -> void:
+	var ghosts = get_tree().get_nodes_in_group("ghost")
+	for i in ghosts:
+		i.queue_free()
+	
 	setup_fade_in()
 	var current_scene_name = get_tree().current_scene.name
 	var current_num = current_scene_name.replace("lvl_", "")

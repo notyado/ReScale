@@ -21,6 +21,7 @@ extends CharacterBody2D
 @onready var win_menu: CanvasLayer = $UI/Win_menu
 @onready var lose_menu: CanvasLayer = $UI/lose_menu
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+@onready var pause_menu: CanvasLayer = $UI/pause_menu
 
 var hp: int = 3
 var current_data: PlayerSizeData
@@ -166,6 +167,7 @@ func start_dash():
 func spawn_dash_ghost():
 	ghost_marker.position = current_data.ghost_pos
 	var ghost = Sprite2D.new()
+	ghost.add_to_group("ghost")
 	ghost.texture = anim.sprite_frames.get_frame_texture(anim.animation, anim.frame)
 	ghost.global_position = ghost_marker.global_position
 	ghost.scale = Vector2(current_data.scale_factor, current_data.scale_factor)
@@ -216,10 +218,12 @@ func apply_stun(duration: float):
 	anim.play("idle")
 
 func die():
+	pause_menu.pausable = false
 	get_tree().paused = true
 	lose_menu.show()
 
 func win():
+	pause_menu.pausable = false
 	get_tree().paused = true
 	win_menu.show()
 
