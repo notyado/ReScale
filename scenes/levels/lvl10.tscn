@@ -1,0 +1,43 @@
+[gd_scene format=4 uid="uid://cqnu02bxwrpge"]
+
+[ext_resource type="PackedScene" uid="uid://c6gdst8e3wnl" path="res://scenes/base_lvl.tscn" id="1_pdy67"]
+[ext_resource type="PackedScene" uid="uid://c8scts01fe7hv" path="res://scenes/spike.tscn" id="2_giycf"]
+[ext_resource type="PackedScene" uid="uid://0qsxhfu60sgw" path="res://scenes/door.tscn" id="3_abo6d"]
+[ext_resource type="PackedScene" uid="uid://bapgqs4vil5pf" path="res://scenes/enemy.tscn" id="4_33otl"]
+[ext_resource type="PackedScene" uid="uid://cedya0dhy1ied" path="res://scenes/glass_bridge.tscn" id="5_okwsp"]
+[ext_resource type="PackedScene" uid="uid://b66qy73wuppfm" path="res://scenes/key.tscn" id="6_3jwlw"]
+
+[node name="lvl_10" unique_id=406329907 instance=ExtResource("1_pdy67")]
+
+[node name="CharacterBody2D" parent="." index="0" unique_id=1179285064]
+position = Vector2(474, -133)
+
+[node name="TileMapLayer" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="0" unique_id=257929231]
+tile_map_data = PackedByteArray("AAD/////EQAAAAAAAAAAAP//EgAAAAAAAAABAP//EgAAAAAAAAACAP//EgAAAAAAAAADAP//EgAAAAAAAAAEAP//EgAAAAAAAAAFAP//EgAAAAAAAAAGAP//FQAAAAAAAAAKAP7/EQAAAAAAAAALAP7/EgAAAAAAAAAMAP7/EgAAAAAAAAANAP7/EgAAAAAAAAAOAP7/EgAAAAAAAAAPAP7/EgAAAAAAAAAQAP7/EgAAAAAAAAARAP7/FQAAAAAAAAAVAPz/DgAAAAAAAAAWAPz/DwAAAAAAAAAXAPz/EAAAAAAAAAAbAPv/DgAAAAAAAAAcAPv/DwAAAAAAAAAdAPv/EAAAAAAAAAAXAPj/DgAAAAAAAAAYAPj/DwAAAAAAAAAZAPj/EAAAAAAAAAAGAPT/EQAAAAAAAAAHAPT/EgAAAAAAAAAIAPT/EgAAAAAAAAAJAPT/EgAAAAAAAAAKAPT/EgAAAAAAAAALAPT/EgAAAAAAAAAMAPT/EgAAAAAAAAANAPT/FQAAAAAAAADx//L/EwAAAAAAAADy//L/FAAAAAAAAAA=")
+
+[node name="spike" parent="." index="6" unique_id=2009879807 instance=ExtResource("2_giycf")]
+position = Vector2(817, -125)
+
+[node name="spike2" parent="." index="7" unique_id=1964561023 instance=ExtResource("2_giycf")]
+position = Vector2(1539, -254)
+
+[node name="spike3" parent="." index="8" unique_id=1535316810 instance=ExtResource("2_giycf")]
+position = Vector2(2066, -251)
+
+[node name="Door" parent="." index="9" unique_id=1792424333 instance=ExtResource("3_abo6d")]
+position = Vector2(40, -253)
+
+[node name="enemy" parent="." index="10" unique_id=287255908 instance=ExtResource("4_33otl")]
+position = Vector2(1230, -1579)
+
+[node name="GlassBridge" parent="." index="11" unique_id=471312994 instance=ExtResource("5_okwsp")]
+position = Vector2(-53, -1606)
+
+[node name="GlassBridge2" parent="." index="12" unique_id=1410664018 instance=ExtResource("5_okwsp")]
+position = Vector2(-949, -1636)
+
+[node name="GlassBridge3" parent="." index="13" unique_id=2005073330 instance=ExtResource("5_okwsp")]
+position = Vector2(2180, -1257)
+
+[node name="Key" parent="." index="14" unique_id=1418549606 instance=ExtResource("6_3jwlw")]
+position = Vector2(-1796, -1838)
