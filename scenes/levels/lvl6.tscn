@@ -1,0 +1,37 @@
+[gd_scene format=4 uid="uid://bt2ymc5xcsvhn"]
+
+[ext_resource type="PackedScene" uid="uid://c6gdst8e3wnl" path="res://scenes/base_lvl.tscn" id="1_bpfpa"]
+[ext_resource type="PackedScene" uid="uid://0qsxhfu60sgw" path="res://scenes/door.tscn" id="2_dbdyw"]
+[ext_resource type="PackedScene" uid="uid://deoua83tyngjl" path="res://scenes/gate.tscn" id="3_8xtnw"]
+[ext_resource type="PackedScene" uid="uid://d0wsm11md4q81" path="res://scenes/weight_button.tscn" id="4_tni81"]
+[ext_resource type="PackedScene" uid="uid://cedya0dhy1ied" path="res://scenes/glass_bridge.tscn" id="5_g5nqd"]
+[ext_resource type="PackedScene" uid="uid://bapgqs4vil5pf" path="res://scenes/enemy.tscn" id="6_8mhbi"]
+[ext_resource type="PackedScene" uid="uid://b66qy73wuppfm" path="res://scenes/key.tscn" id="7_6aapk"]
+
+[node name="lvl_6" unique_id=406329907 instance=ExtResource("1_bpfpa")]
+
+[node name="CharacterBody2D" parent="." index="0" unique_id=1179285064]
+position = Vector2(127, -128)
+
+[node name="TileMapLayer" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="0" unique_id=257929231]
+tile_map_data = PackedByteArray("AAAAAP//CgAAAAAAAAAAAAAABAAAAAAAAAABAP//CQAAAAAAAAABAAAAAwAAAAAAAAACAP//CQAAAAAAAAACAAAAAwAAAAAAAAADAP7/HgAAAAAAAAADAP//CQAAAAAAAAADAAAAAwAAAAAAAAAEAP//CQAAAAAAAAAEAAAAAwAAAAAAAAAFAP//CQAAAAAAAAAFAAAAAwAAAAAAAAAGAAAAAwAAAAAAAAAHAP//CQAAAAAAAAAHAAAAAwAAAAAAAAAIAP7/HgAAAAAAAAAIAP//CQAAAAAAAAAIAAAAAwAAAAAAAAAGAP//CQAAAAAAAAAJAP//CwAAAAAAAAAJAAAABQAAAAAAAAAQAPz/CgAAAAAAAAAQAP3/BAAAAAAAAAAYAPz/CQAAAAAAAAAYAP3/AwAAAAAAAAATAPz/CQAAAAAAAAATAP3/AwAAAAAAAAAUAPz/CQAAAAAAAAAUAP3/AwAAAAAAAAARAPz/CQAAAAAAAAARAP3/AwAAAAAAAAASAPz/CQAAAAAAAAASAP3/AwAAAAAAAAAVAPz/CQAAAAAAAAAVAP3/AwAAAAAAAAAWAPz/CQAAAAAAAAAWAP3/AwAAAAAAAAAXAPz/CQAAAAAAAAAXAP3/AwAAAAAAAAAbAPz/CQAAAAAAAAAbAP3/AwAAAAAAAAAcAPz/CAAAAAAAAAAcAP3/BQAAAAAAAAAZAPz/CQAAAAAAAAAZAP3/AwAAAAAAAAAaAPz/CQAAAAAAAAAaAP3/AwAAAAAAAAAcAPf/CAAAAAAAAAAcAPj/CAAAAAAAAAAcAPn/CAAAAAAAAAAcAPr/CAAAAAAAAAAcAPv/CAAAAAAAAAD8////CgAAAAAAAAD8/wAABAAAAAAAAAD9////CwAAAAAAAAD9/wAABQAAAAAAAAA=")
+
+[node name="Door" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="1" unique_id=1792424333 instance=ExtResource("2_dbdyw")]
+position = Vector2(-384, -253)
+
+[node name="Gate" parent="." index="4" unique_id=1205582747 instance=ExtResource("3_8xtnw")]
+position = Vector2(2722, -572)
+
+[node name="WeightButton" parent="." index="5" unique_id=1618265945 node_paths=PackedStringArray("target_gate") instance=ExtResource("4_tni81")]
+z_index = -1
+position = Vector2(3504, -572)
+target_gate = NodePath("../Gate")
+
+[node name="GlassBridge" parent="." index="6" unique_id=471312994 instance=ExtResource("5_g5nqd")]
+position = Vector2(1319, -285)
+
+[node name="enemy" parent="." index="7" unique_id=287255908 instance=ExtResource("6_8mhbi")]
+position = Vector2(3307, -510)
+
+[node name="Key" parent="." index="8" unique_id=1418549606 instance=ExtResource("7_6aapk")]
+position = Vector2(3134, -596)

@@ -27,7 +27,6 @@ func _ready():
 	
 	_connect_buttons_recursive(get_tree().root)
 	get_tree().node_added.connect(_on_node_added)
-	
 
 func _connect_buttons_recursive(node: Node):
 	if node is TextureButton:
