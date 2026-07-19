@@ -184,13 +184,13 @@ func _on_dash_ghost_timer_timeout() -> void:
 	else:
 		dash_ghost_timer.stop()
 
-func take_damage(pos: Vector2):
+func take_damage(pos: Vector2, force: int):
 	if is_invulnerable: return
 	
 	hp -= 1
 	is_invulnerable = true
 	var knockback_dir = (global_position - pos).normalized()
-	velocity = knockback_dir * 600
+	velocity = knockback_dir * force
 	anim.play("hurt")
 	audio.play_sfx("hurt")
 	modulate = Color.RED

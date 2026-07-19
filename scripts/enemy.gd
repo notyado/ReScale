@@ -49,7 +49,7 @@ func perform_attack(target: Node2D):
 	
 	await anim.animation_finished
 	
-	target.take_damage(global_position)
+	target.take_damage(global_position, 600)
 	await get_tree().create_timer(0.4).timeout
 	is_attacking = false
 
