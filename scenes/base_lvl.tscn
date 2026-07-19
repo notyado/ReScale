@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bdqwh1mbsae76" path="res://assets/environment/tiles/terrain_grass_block_top.png" id="28_7e61a"]
 [ext_resource type="PackedScene" uid="uid://cjtawqjy3psep" path="res://scenes/player.tscn" id="30_3je37"]
 [ext_resource type="Texture2D" uid="uid://cdmg4wksa2g3y" path="res://assets/environment/backgrounds/background_solid_sky.png" id="31_m14g2"]
+[ext_resource type="FontFile" uid="uid://drpxnperqvly5" path="res://assets/fonts/Kenney Future.ttf" id="33_dmsfr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1r2eg"]
 texture = ExtResource("1_oq2nj")
@@ -133,7 +134,7 @@ texture_region_size = Vector2i(128, 128)
 texture = ExtResource("17_v1yvo")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(56.11592, 64, -64, -56, -64, 64)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, -64, -64, -64, 64)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d83rh"]
 texture = ExtResource("18_tmg5d")
@@ -241,6 +242,49 @@ sources/31 = SubResource("TileSetAtlasSource_3je37")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(28057, 442)
 
+[sub_resource type="Animation" id="Animation_dmsfr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lbl/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h4c71"]
+resource_name = "start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lbl/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70f8u"]
+_data = {
+&"RESET": SubResource("Animation_dmsfr"),
+&"start": SubResource("Animation_h4c71")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("33_dmsfr")
+font_size = 128
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
 [node name="lvl" type="Node2D" unique_id=406329907]
 script = ExtResource("1_7jvvf")
 
@@ -265,5 +309,25 @@ texture = ExtResource("31_m14g2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lose_area" unique_id=2078847358]
 position = Vector2(8672.5, 1998)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=678495720]
+libraries/ = SubResource("AnimationLibrary_70f8u")
+
+[node name="lbl" type="CanvasLayer" parent="." unique_id=465249626]
+
+[node name="Label" type="Label" parent="lbl" unique_id=1916051677]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.22222222
+offset_top = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+text = "Level "
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="lose_area" to="." method="_on_lose_area_body_entered"]

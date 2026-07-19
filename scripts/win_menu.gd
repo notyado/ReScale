@@ -6,10 +6,9 @@ func _ready() -> void:
 
 func _on_continue_button_pressed() -> void:
 	var current_scene_name = get_tree().current_scene.name
-	print(current_scene_name)
+	
 	var current_num = int(current_scene_name.replace("lvl_", ""))
 	var next_num = current_num + 1
-	print(next_num)
 	
 	var next_level_path = "res://scenes/levels/lvl" + str(next_num) + ".tscn"
 	

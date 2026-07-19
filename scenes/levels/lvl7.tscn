@@ -1,0 +1,23 @@
+[gd_scene format=4 uid="uid://oqx8mf3evgr"]
+
+[ext_resource type="PackedScene" uid="uid://c6gdst8e3wnl" path="res://scenes/base_lvl.tscn" id="1_fn4bs"]
+[ext_resource type="PackedScene" uid="uid://0qsxhfu60sgw" path="res://scenes/door.tscn" id="2_nhufd"]
+[ext_resource type="PackedScene" uid="uid://b66qy73wuppfm" path="res://scenes/key.tscn" id="3_q5sgm"]
+[ext_resource type="PackedScene" uid="uid://cedya0dhy1ied" path="res://scenes/glass_bridge.tscn" id="4_q5sgm"]
+
+[node name="lvl_7" unique_id=406329907 instance=ExtResource("1_fn4bs")]
+
+[node name="TileMapLayer" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="0" unique_id=257929231]
+tile_map_data = PackedByteArray("AAAAAP//EwAAAAAAAAABAP//EgAAAAAAAAACAP//EgAAAAAAAAADAP//EgAAAAAAAAAEAP//EgAAAAAAAAAFAP//EgAAAAAAAAAGAP//FAAAAAAAAAANAP7/DgAAAAAAAAAOAP7/DwAAAAAAAAAPAP7/EAAAAAAAAAAWAP3/DAAAAAAAAAAaAPr/DAAAAAAAAAAWAPz/HgAAAAAAAAAOAP3/HgAAAAAAAAAFAP7/HgAAAAAAAAAuAPz/DgAAAAAAAAAvAPz/DwAAAAAAAAAwAPz/EAAAAAAAAAA=")
+
+[node name="Door" parent="." index="4" unique_id=1792424333 instance=ExtResource("2_nhufd")]
+position = Vector2(438, -254)
+
+[node name="Key" parent="." index="5" unique_id=1418549606 instance=ExtResource("3_q5sgm")]
+position = Vector2(6070, -574)
+
+[node name="GlassBridge" parent="." index="6" unique_id=471312994 instance=ExtResource("4_q5sgm")]
+position = Vector2(3719, -494)
+
+[node name="GlassBridge2" parent="." index="7" unique_id=1173930757 instance=ExtResource("4_q5sgm")]
+position = Vector2(4785, -703)
