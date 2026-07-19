@@ -121,7 +121,7 @@ shape = SubResource("CapsuleShape2D_qlg0r")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=464208840]
 position = Vector2(0, -106)
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.4, 0.4)
 
 [node name="DashGhostTimer" type="Timer" parent="." unique_id=2093047804]
 wait_time = 0.05

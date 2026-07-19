@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d0wsm11md4q81" path="res://scenes/weight_button.tscn" id="8_nj4g2"]
 [ext_resource type="PackedScene" uid="uid://b66qy73wuppfm" path="res://scenes/key.tscn" id="9_4huip"]
 
-[node name="lvl" unique_id=406329907 instance=ExtResource("1_34npl")]
+[node name="lvl_13" unique_id=406329907 instance=ExtResource("1_34npl")]
 
 [node name="CharacterBody2D" parent="." index="0" unique_id=1179285064]
 position = Vector2(309, 101)

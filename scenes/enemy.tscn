@@ -67,6 +67,7 @@ radius = 838.02924
 size = Vector2(90, 123)
 
 [node name="enemy" type="CharacterBody2D" unique_id=287255908 groups=["enemy"]]
+z_index = 1
 script = ExtResource("1_md0e3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1364010488]
