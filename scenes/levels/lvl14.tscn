@@ -1,0 +1,63 @@
+[gd_scene format=4 uid="uid://bxjtsbc7hdg4v"]
+
+[ext_resource type="PackedScene" uid="uid://c6gdst8e3wnl" path="res://scenes/base_lvl.tscn" id="1_hcp8h"]
+[ext_resource type="PackedScene" uid="uid://cedya0dhy1ied" path="res://scenes/glass_bridge.tscn" id="2_qdct0"]
+[ext_resource type="PackedScene" uid="uid://bapgqs4vil5pf" path="res://scenes/enemy.tscn" id="3_4iut2"]
+[ext_resource type="PackedScene" uid="uid://b66qy73wuppfm" path="res://scenes/key.tscn" id="4_qdct0"]
+[ext_resource type="PackedScene" uid="uid://0qsxhfu60sgw" path="res://scenes/door.tscn" id="5_4iut2"]
+[ext_resource type="PackedScene" uid="uid://coi7smigq05sw" path="res://scenes/spring.tscn" id="6_hnv2v"]
+[ext_resource type="PackedScene" uid="uid://c8scts01fe7hv" path="res://scenes/spike.tscn" id="6_ih6mx"]
+
+[node name="lvl" unique_id=406329907 instance=ExtResource("1_hcp8h")]
+
+[node name="TileMapLayer" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="0" unique_id=257929231]
+tile_map_data = PackedByteArray("AAAAAP//EwAAAAAAAAABAP//FAAAAAAAAAADAP7/EwAAAAAAAAAEAP7/FAAAAAAAAAAGAP3/EwAAAAAAAAAHAP3/FAAAAAAAAAAGAPb/DAAAAAAAAAALAPb/DgAAAAAAAAAMAPb/DwAAAAAAAAANAPb/DwAAAAAAAAAOAPb/DwAAAAAAAAAPAPb/DwAAAAAAAAAQAPb/DwAAAAAAAAARAPb/EAAAAAAAAAASAPb/GwAAAAAAAAASAPX/HQAAAAAAAAAAAAMAEwAAAAAAAAABAAMAFAAAAAAAAAAYAO//EQAAAAAAAAAYAO3/EQAAAAAAAAAZAO3/EgAAAAAAAAAZAO//EgAAAAAAAAAaAO3/EgAAAAAAAAAaAO//EgAAAAAAAAAbAO3/EgAAAAAAAAAbAO//EgAAAAAAAAAcAO//FQAAAAAAAAAcAO3/FQAAAAAAAAAeAPD/AgAAAAAAAAAgAOr/EQAAAAAAAAAgAOz/EQAAAAAAAAAhAOr/EgAAAAAAAAAhAOz/EgAAAAAAAAAiAOr/EgAAAAAAAAAiAOz/EgAAAAAAAAAjAOr/EgAAAAAAAAAjAOz/EgAAAAAAAAAkAOr/FQAAAAAAAAAkAOz/FQAAAAAAAAA=")
+
+[node name="GlassBridge" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="1" unique_id=471312994 instance=ExtResource("2_qdct0")]
+position = Vector2(171, -620)
+
+[node name="GlassBridge2" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="2" unique_id=838645936 instance=ExtResource("2_qdct0")]
+position = Vector2(-462, -790)
+
+[node name="GlassBridge3" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="3" unique_id=1430095737 instance=ExtResource("2_qdct0")]
+position = Vector2(198, -1046)
+
+[node name="GlassBridge4" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="4" unique_id=206056235 instance=ExtResource("2_qdct0")]
+position = Vector2(983, -1266)
+
+[node name="enemy" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="5" unique_id=287255908 instance=ExtResource("3_4iut2")]
+position = Vector2(1809, -1278)
+
+[node name="GlassBridge5" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="6" unique_id=659690897 instance=ExtResource("2_qdct0")]
+position = Vector2(2424, -1488)
+
+[node name="enemy2" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="7" unique_id=431284779 instance=ExtResource("3_4iut2")]
+position = Vector2(2150, -1280)
+
+[node name="Door" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="8" unique_id=1792424333 instance=ExtResource("5_4iut2")]
+position = Vector2(132, 260)
+
+[node name="spike" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="9" unique_id=2009879807 instance=ExtResource("6_ih6mx")]
+position = Vector2(1980, -1278)
+
+[node name="spike2" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="10" unique_id=214336135 instance=ExtResource("6_ih6mx")]
+position = Vector2(1668, -1278)
+
+[node name="Spring" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="11" unique_id=60396382 instance=ExtResource("6_hnv2v")]
+position = Vector2(2795, -1553)
+
+[node name="Spring2" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="12" unique_id=1110719777 instance=ExtResource("6_hnv2v")]
+position = Vector2(3907, -2109)
+
+[node name="spike3" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="13" unique_id=266568577 instance=ExtResource("6_ih6mx")]
+z_index = -1
+position = Vector2(4390, -2518)
+
+[node name="TextureRect" parent="background" parent_id_path=PackedInt32Array(1772398399) index="0" unique_id=995455909]
+metadata/_edit_lock_ = true
+
+[node name="Label" parent="lbl" parent_id_path=PackedInt32Array(465249626) index="0" unique_id=1916051677]
+metadata/_edit_lock_ = true
+
+[node name="Key" parent="." index="6" unique_id=1418549606 instance=ExtResource("4_qdct0")]
+position = Vector2(4599, -2609)
