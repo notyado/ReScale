@@ -1,0 +1,58 @@
+[gd_scene format=4 uid="uid://7x0n56lyr1d0"]
+
+[ext_resource type="PackedScene" uid="uid://c6gdst8e3wnl" path="res://scenes/base_lvl.tscn" id="1_ppbg5"]
+[ext_resource type="PackedScene" uid="uid://0qsxhfu60sgw" path="res://scenes/door.tscn" id="2_07uub"]
+[ext_resource type="PackedScene" uid="uid://b66qy73wuppfm" path="res://scenes/key.tscn" id="3_x2dno"]
+[ext_resource type="PackedScene" uid="uid://bapgqs4vil5pf" path="res://scenes/enemy.tscn" id="4_pcod4"]
+[ext_resource type="PackedScene" uid="uid://cedya0dhy1ied" path="res://scenes/glass_bridge.tscn" id="5_rxrqk"]
+[ext_resource type="PackedScene" uid="uid://deoua83tyngjl" path="res://scenes/gate.tscn" id="6_x2dno"]
+[ext_resource type="PackedScene" uid="uid://c8scts01fe7hv" path="res://scenes/spike.tscn" id="7_pcod4"]
+[ext_resource type="PackedScene" uid="uid://d0wsm11md4q81" path="res://scenes/weight_button.tscn" id="8_rxrqk"]
+
+[node name="lvl_12" unique_id=406329907 instance=ExtResource("1_ppbg5")]
+
+[node name="TileMapLayer" parent="tilemap" parent_id_path=PackedInt32Array(1387038283) index="0" unique_id=257929231]
+tile_map_data = PackedByteArray("AAAAAP//CQAAAAAAAAABAP//CQAAAAAAAAACAP//CQAAAAAAAAADAP//CQAAAAAAAAAEAP//CQAAAAAAAAAFAP//CQAAAAAAAAAGAP//CQAAAAAAAAD/////CgAAAAAAAAAHAP//CQAAAAAAAAAHAAAAAwAAAAAAAAD//wAABAAAAAAAAAAAAAAAAwAAAAAAAAABAAAAAwAAAAAAAAACAAAAAwAAAAAAAAADAAAAAwAAAAAAAAAEAAAAAwAAAAAAAAAFAAAAAwAAAAAAAAAGAAAAAwAAAAAAAAAIAP//CQAAAAAAAAAIAAAAAwAAAAAAAAAJAP//CQAAAAAAAAAJAAAAAwAAAAAAAAAKAP//CQAAAAAAAAAKAAAAAwAAAAAAAAALAP//CQAAAAAAAAALAAAAAwAAAAAAAAAMAP//CQAAAAAAAAAMAAAAAwAAAAAAAAANAP//CQAAAAAAAAANAAAAAwAAAAAAAAAOAP//CQAAAAAAAAAOAAAAAwAAAAAAAAAPAP//CQAAAAAAAAAPAAAAAwAAAAAAAAAQAP//CwAAAAAAAAAQAAAABQAAAAAAAAAiAPH/CgAAAAAAAAAiAPL/BAAAAAAAAAAjAPH/CQAAAAAAAAAjAPL/AwAAAAAAAAAkAPH/CQAAAAAAAAAkAPL/AwAAAAAAAAAlAPH/CQAAAAAAAAAlAPL/AwAAAAAAAAAmAPH/CQAAAAAAAAAmAPL/AwAAAAAAAAAnAPH/CQAAAAAAAAAnAPL/AwAAAAAAAAAoAPH/CQAAAAAAAAAoAPL/AwAAAAAAAAApAPH/CQAAAAAAAAApAPL/AwAAAAAAAAAqAPH/CQAAAAAAAAAqAPL/AwAAAAAAAAArAPH/CQAAAAAAAAArAPL/AwAAAAAAAAAsAPH/CQAAAAAAAAAsAPL/AwAAAAAAAAAtAPH/CQAAAAAAAAAtAPL/AwAAAAAAAAAuAPH/CQAAAAAAAAAuAPL/AwAAAAAAAAAvAPH/CQAAAAAAAAAvAPL/AwAAAAAAAAAwAPH/CQAAAAAAAAAwAPL/AwAAAAAAAAAxAPH/CQAAAAAAAAAxAPL/AwAAAAAAAAAyAPH/CQAAAAAAAAAyAPL/AwAAAAAAAAAzAPH/CwAAAAAAAAAzAPL/BQAAAAAAAADT//X/CgAAAAAAAADT//b/BAAAAAAAAADU//X/CQAAAAAAAADU//b/AwAAAAAAAADV//X/CQAAAAAAAADV//b/AwAAAAAAAADW//X/CQAAAAAAAADW//b/AwAAAAAAAADX//X/CQAAAAAAAADX//b/AwAAAAAAAADY//X/CQAAAAAAAADY//b/AwAAAAAAAADZ//X/CQAAAAAAAADZ//b/AwAAAAAAAADa//X/CQAAAAAAAADa//b/AwAAAAAAAADb//X/CQAAAAAAAADb//b/AwAAAAAAAADc//X/CQAAAAAAAADc//b/AwAAAAAAAADd//X/CQAAAAAAAADd//b/AwAAAAAAAADe//X/CQAAAAAAAADe//b/AwAAAAAAAADf//X/CQAAAAAAAADf//b/AwAAAAAAAADg//X/CQAAAAAAAADg//b/AwAAAAAAAADh//X/CQAAAAAAAADh//b/AwAAAAAAAADi//X/CQAAAAAAAADi//b/AwAAAAAAAADj//X/CQAAAAAAAADj//b/AwAAAAAAAADk//X/CwAAAAAAAADk//b/BQAAAAAAAADZ//P/BAAAAAAAAADa//P/AwAAAAAAAADb//P/AwAAAAAAAADc//P/AwAAAAAAAADd//P/AwAAAAAAAADe//P/AwAAAAAAAADf//P/AwAAAAAAAADg//P/AwAAAAAAAADh//P/BQAAAAAAAADh//L/CAAAAAAAAADh//H/CAAAAAAAAADh//D/CAAAAAAAAADh/+//CAAAAAAAAADh/+7/CAAAAAAAAADZ//L/BwAAAAAAAADZ//H/BwAAAAAAAADZ//D/BwAAAAAAAADZ/+//BwAAAAAAAADZ/+7/BwAAAAAAAADd//D/BgAAAAAAAADd/+//BgAAAAAAAADd/+7/BgAAAAAAAADc/+7/BgAAAAAAAADb/+7/BgAAAAAAAADa/+7/BgAAAAAAAADa/+//BgAAAAAAAADa//D/BgAAAAAAAADa//H/BgAAAAAAAADa//L/BgAAAAAAAADb//L/BgAAAAAAAADb//H/BgAAAAAAAADb//D/BgAAAAAAAADb/+//BgAAAAAAAADc/+//BgAAAAAAAADc//D/BgAAAAAAAADc//H/BgAAAAAAAADc//L/BgAAAAAAAADd//L/BgAAAAAAAADd//H/BgAAAAAAAADe//H/BgAAAAAAAADe//D/BgAAAAAAAADe/+//BgAAAAAAAADe/+7/BgAAAAAAAADf/+7/BgAAAAAAAADf/+//BgAAAAAAAADf//D/BgAAAAAAAADf//H/BgAAAAAAAADf//L/BgAAAAAAAADe//L/BgAAAAAAAADg//L/BgAAAAAAAADg//H/BgAAAAAAAADg//D/BgAAAAAAAADg/+//BgAAAAAAAADg/+7/BgAAAAAAAAD7//7/DAAAAAAAAAD2//z/DAAAAAAAAADx//r/DAAAAAAAAADs//n/DAAAAAAAAADa/+3/CQAAAAAAAADb/+3/CQAAAAAAAADc/+3/CQAAAAAAAADd/+3/CQAAAAAAAADe/+3/CQAAAAAAAADf/+3/CQAAAAAAAADg/+3/CQAAAAAAAADh/+3/CwAAAAAAAADZ/+3/CgAAAAAAAAAWAP7/DAAAAAAAAAAbAPz/DAAAAAAAAAAgAPr/DAAAAAAAAAAcAPf/DAAAAAAAAAD3//H/CgAAAAAAAAD3//L/BAAAAAAAAAD4//H/CQAAAAAAAAD4//L/AwAAAAAAAAD5//H/CQAAAAAAAAD5//L/AwAAAAAAAAD6//H/CQAAAAAAAAD6//L/AwAAAAAAAAD7//H/CQAAAAAAAAD7//L/AwAAAAAAAAD8//H/CQAAAAAAAAD8//L/AwAAAAAAAAD9//H/CQAAAAAAAAD9//L/AwAAAAAAAAD+//H/CQAAAAAAAAD+//L/AwAAAAAAAAD///H/CQAAAAAAAAD///L/AwAAAAAAAAAAAPH/CQAAAAAAAAAAAPL/AwAAAAAAAAABAPH/CQAAAAAAAAABAPL/AwAAAAAAAAACAPH/CQAAAAAAAAACAPL/AwAAAAAAAAADAPH/CQAAAAAAAAADAPL/AwAAAAAAAAAEAPH/CQAAAAAAAAAEAPL/AwAAAAAAAAAFAPH/CQAAAAAAAAAFAPL/AwAAAAAAAAAGAPH/CQAAAAAAAAAGAPL/AwAAAAAAAAAHAPH/CQAAAAAAAAAHAPL/AwAAAAAAAAAIAPH/CwAAAAAAAAAIAPL/BQAAAAAAAAAgAPT/DAAAAAAAAADh//T/HgAAAAAAAADe/+z/HgAAAAAAAADx//n/HgAAAAAAAAAFAP7/HgAAAAAAAAADAPD/HgAAAAAAAAAkAPD/HgAAAAAAAAAsAPD/HgAAAAAAAAAoAPD/HgAAAAAAAAAxAPD/HgAAAAAAAAAbAPv/HgAAAAAAAAA=")
+
+[node name="Door" parent="." index="6" unique_id=1792424333 instance=ExtResource("2_07uub")]
+position = Vector2(6487, -2048)
+
+[node name="Key" parent="." index="7" unique_id=1418549606 instance=ExtResource("3_x2dno")]
+position = Vector2(-5426, -1494)
+
+[node name="enemy" parent="." index="8" unique_id=287255908 instance=ExtResource("4_pcod4")]
+position = Vector2(-5177, -1414)
+
+[node name="enemy2" parent="." index="9" unique_id=1608504406 instance=ExtResource("4_pcod4")]
+position = Vector2(-413, -1924)
+
+[node name="GlassBridge" parent="." index="10" unique_id=471312994 instance=ExtResource("5_rxrqk")]
+position = Vector2(-3140, -1241)
+
+[node name="GlassBridge2" parent="." index="11" unique_id=1030897447 instance=ExtResource("5_rxrqk")]
+position = Vector2(2762, -1461)
+
+[node name="GlassBridge3" parent="." index="12" unique_id=940687815 instance=ExtResource("5_rxrqk")]
+position = Vector2(1747, -1797)
+
+[node name="Gate" parent="." index="13" unique_id=1205582747 instance=ExtResource("6_x2dno")]
+position = Vector2(6098, -1980)
+
+[node name="spike" parent="." index="14" unique_id=2009879807 instance=ExtResource("7_pcod4")]
+position = Vector2(1494, -125)
+
+[node name="spike2" parent="." index="15" unique_id=1286808680 instance=ExtResource("7_pcod4")]
+position = Vector2(982, -121)
+
+[node name="spike3" parent="." index="16" unique_id=641750197 instance=ExtResource("7_pcod4")]
+position = Vector2(898, -1917)
+
+[node name="spike4" parent="." index="17" unique_id=542697509 instance=ExtResource("7_pcod4")]
+position = Vector2(220, -1920)
+
+[node name="spike5" parent="." index="18" unique_id=1240891289 instance=ExtResource("7_pcod4")]
+position = Vector2(-219, -1916)
+
+[node name="WeightButton" parent="." index="19" unique_id=1618265945 node_paths=PackedStringArray("target_gate") instance=ExtResource("8_rxrqk")]
+position = Vector2(-941, -1976)
+target_gate = NodePath("../Gate")
